@@ -1,4 +1,4 @@
-const REPLACE_LIST: [(char, char); 20] = [
+const REPLACE_LIST: [(char, char); 21] = [
     ('０', '0'),
     ('１', '1'),
     ('２', '2'),
@@ -11,6 +11,7 @@ const REPLACE_LIST: [(char, char); 20] = [
     ('９', '9'),
     ('＋', '+'),
     ('−', '-'),
+    ('－', '-'),
     ('＊', '*'),
     ('×', '*'),
     ('／', '/'),
@@ -45,11 +46,11 @@ mod tests {
 
         #[test]
         fn checking_value() {
-            let case_01 = "０１２３４５６７８９＋−＊×／÷％（）．";
-            assert_eq!(preprocess(case_01), "0123456789+-**//%().".to_string());
+            let case_01 = "０１２３４５６７８９＋−－＊×／÷％（）．";
+            assert_eq!(preprocess(case_01), "0123456789+--**//%().".to_string());
 
-            let case_02 = "0123456789+-**//%().";
-            assert_eq!(preprocess(case_02), "0123456789+-**//%().".to_string());
+            let case_02 = "0123456789+--**//%().";
+            assert_eq!(preprocess(case_02), "0123456789+--**//%().".to_string());
 
             let case_03 = "あああ";
             assert_eq!(preprocess(case_03), "aaa".to_string());
