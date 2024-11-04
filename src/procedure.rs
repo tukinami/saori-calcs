@@ -32,6 +32,14 @@ pub fn execute(_path: &str, request: &SaoriRequest, response: &mut SaoriResponse
         }
     };
 
+    if expression_str.starts_with(ERROR_HEADER) {
+        response.set_result(format!(
+            "{}エラー未修正: 前回のエラーが修正されていません。",
+            ERROR_HEADER
+        ));
+        return;
+    }
+
     match calc(calc_mode_str, expression_str) {
         Ok(result) => response.set_result(result),
         Err(error) => response.set_result(format!("{}{}", ERROR_HEADER, error)),
