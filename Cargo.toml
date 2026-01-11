@@ -1,6 +1,6 @@
 [package]
 name = "saori-calcs"
-version = "1.0.0"
+version = "1.1.1"
 edition = "2021"
 authors = [ "tukinami seika" ]
 license = "MIT"
@@ -15,7 +15,7 @@ description = "SAORI to calculate four arithmetic operations."
 winapi = {version = "0.3.9", features = ["winbase", "libloaderapi", "stringapiset"]}
 
 [dev-dependencies]
-encoding_rs = "0.8.33"
+encoding_rs = "0.8.35"
 
 [lib]
 name = "calcs"
